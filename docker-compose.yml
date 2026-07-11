@@ -1,0 +1,10 @@
+services:
+
+  api:
+    build:
+      context: ./backend
+    container_name: descarga-sat-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
