@@ -6,6 +6,9 @@ from fastapi import File
 from fastapi import Form
 from fastapi import UploadFile
 
+
+from app.sat.certificate import read_certificate
+
 router = APIRouter()
 
 STORAGE = Path("/app/app/storage/certificates")
@@ -29,7 +32,10 @@ async def upload_certificate(
     with key_path.open("wb") as buffer:
         shutil.copyfileobj(key.file, buffer)
 
+    certificate = read_certificate(str(cer_path))
+
     return {
         "message": "uploaded",
         "rfc": rfc,
+        "certificate": certificate,
     }
