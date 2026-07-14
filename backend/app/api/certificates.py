@@ -18,6 +18,7 @@ async def upload_certificate(
     rfc: str = Form(...),
     cer: UploadFile = File(...),
     key: UploadFile = File(...),
+    password: str = Form(...)
 ):
     cer_path = STORAGE / f"{rfc}.cer"
     key_path = STORAGE / f"{rfc}.key"
