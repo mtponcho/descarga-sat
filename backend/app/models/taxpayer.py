@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy.orm import relationship
 
 from app.db.database import Base
 
@@ -15,6 +16,11 @@ class Taxpayer(Base):
         unique=True,
         nullable=False,
         index=True,
+    )
+
+    certificates = relationship(
+        "Certificate",
+        back_populates="taxpayer",
     )
 
     created = Column(

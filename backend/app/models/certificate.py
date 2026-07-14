@@ -8,6 +8,8 @@ from sqlalchemy import (
     String,
 )
 
+from sqlalchemy.orm import relationship
+
 from app.db.database import Base
 
 
@@ -20,6 +22,11 @@ class Certificate(Base):
         Integer,
         ForeignKey("taxpayers.id"),
         nullable=False,
+    )
+
+    taxpayer = relationship(
+        "Taxpayer",
+        back_populates="certificates",
     )
 
     cer_file = Column(String(255), nullable=False)
