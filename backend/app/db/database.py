@@ -30,3 +30,5 @@ def get_db():
         db.close()
 
 from app.models.certificate import Certificate  
+from app.models.download_request import DownloadRequest
+from app.models.taxpayer import Taxpayer

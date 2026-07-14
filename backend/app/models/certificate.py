@@ -1,6 +1,12 @@
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime, Integer, String
+from sqlalchemy import (
+    Column,
+    DateTime,
+    ForeignKey,
+    Integer,
+    String,
+)
 
 from app.db.database import Base
 
@@ -10,7 +16,11 @@ class Certificate(Base):
 
     id = Column(Integer, primary_key=True)
 
-    rfc = Column(String(13), nullable=False)
+    taxpayer_id = Column(
+        Integer,
+        ForeignKey("taxpayers.id"),
+        nullable=False,
+    )
 
     cer_file = Column(String(255), nullable=False)
     key_file = Column(String(255), nullable=False)
@@ -18,7 +28,11 @@ class Certificate(Base):
     serial_number = Column(String(100), nullable=False)
     subject = Column(String(1000), nullable=False)
     issuer = Column(String(1000), nullable=False)
+
     not_before = Column(String(50), nullable=False)
     not_after = Column(String(50), nullable=False)
 
-    created = Column(DateTime, default=datetime.utcnow)
+    created = Column(
+        DateTime,
+        default=datetime.utcnow,
+    )
