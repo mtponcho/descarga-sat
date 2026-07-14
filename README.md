@@ -24,3 +24,18 @@ Fecha: 2026-07-10
 ## Próximo commit
 
 feat: persist certificates metadata
+
+
+
+API:
+
+http://localhost:8000
+
+Swagger:
+
+http://localhost:8000/docs
+Endpoints actuales
+Health
+GET /health
+Cargar certificado
+POST /certificates

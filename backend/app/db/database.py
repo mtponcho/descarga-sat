@@ -29,4 +29,4 @@ def get_db():
     finally:
         db.close()
 
-from app.models.certificate import Certificate  # noqa
+from app.models.certificate import Certificate  
