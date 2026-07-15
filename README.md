@@ -39,3 +39,25 @@ Health
 GET /health
 Cargar certificado
 POST /certificates
+
+
+
+API
+    │
+    ▼
+DownloadService
+    │
+    ▼
+PostgreSQL
+    │
+    ▼
+request_id
+    │
+    ▼
+SAT.recover_comprobante_status()
+    │
+    ▼
+actualiza BD
+    │
+    ▼
+devuelve respuesta

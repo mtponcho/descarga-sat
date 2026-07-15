@@ -27,3 +27,10 @@ app.include_router(
     certificate_router,
     tags=["certificates"],
 )
+
+
+from app.api.downloads import router as download_router
+
+app.include_router(
+   download_router
+)
