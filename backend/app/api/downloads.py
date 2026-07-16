@@ -9,6 +9,14 @@ from app.services.download_service import DownloadService
 from app.services.download_status_service import DownloadStatusService
 from app.services.package_service import PackageService
 
+from app.services.cfdi_service import CfdiService
+
+from app.services.cfdi_query_service import CfdiQueryService
+
+from fastapi.responses import PlainTextResponse
+from app.models.cfdi_document import CfdiDocument
+from app.models.download_package import DownloadPackage
+
 
 router = APIRouter()
 
@@ -60,3 +68,75 @@ def download_packages(
         download_id,
         password,
     )
+
+@router.post("/downloads/{download_id}/process")
+def process_download(
+    download_id: int,
+    db: Session = Depends(get_db),
+):
+
+    service = CfdiService(db)
+
+    return service.process(download_id)
+
+@router.get("/downloads/{download_id}/summary")
+def cfdi_summary(
+    download_id: int,
+    db: Session = Depends(get_db),
+):
+
+    service = CfdiQueryService(db)
+
+    return service.summary(download_id)
+
+@router.get(
+    "/downloads/{download_id}/summary/tsv",
+    response_class=PlainTextResponse,
+)
+def cfdi_summary_tsv(
+    download_id: int,
+    db: Session = Depends(get_db),
+):
+
+    rows = (
+        db.query(CfdiDocument)
+        .join(
+            DownloadPackage,
+            CfdiDocument.download_package_id == DownloadPackage.id
+        )
+        .filter(
+            DownloadPackage.download_request_id == download_id
+        )
+        .order_by(
+            CfdiDocument.fecha
+        )
+        .all()
+    )
+
+    output = []
+
+    output.append(
+        "Fecha\tRFC\tTotal\tIVA"
+    )
+
+    total = 0
+    iva = 0
+
+    for cfdi in rows:
+
+        output.append(
+            f"{cfdi.fecha.date()}\t"
+            f"{cfdi.rfc_emisor}\t"
+            f"{cfdi.total}\t"
+            f"{cfdi.iva_trasladado}"
+        )
+
+        total += cfdi.total
+        iva += cfdi.iva_trasladado
+
+
+    output.append(
+        f"TOTAL\t\t{total}\t{iva}"
+    )
+
+    return "\n".join(output)

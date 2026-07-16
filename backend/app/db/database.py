@@ -33,3 +33,4 @@ from app.models.certificate import Certificate
 from app.models.download_request import DownloadRequest
 from app.models.taxpayer import Taxpayer
 from app.models.download_package import DownloadPackage
+from app.models.cfdi_document import CfdiDocument

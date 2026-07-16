@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Serie="ECA" Folio="3212" Fecha="2026-06-24T19:24:47" Exportacion="01" Sello="pJ1lZ17B+5ZkkPnNUdWJLObPCpIjhGqCCDe2zmSjA9CpLMu/j3XlXC1XWYhN/TaSUAtQ50DXal7fEZ6iA8QV9R7XEMc+2bcQv9SV9Paekc9e4Dayi+e8+Ne7MXGynWHvv+9C/JuZQX16id0NLd4hssQifBn6lEIoCvgDi37Yo4QckWOM5EU2AZHcZ9s5mpMbvLTz+HcBS0GITAb5O2nNhTyBAsKI5n2cGIOVSAaynEkxQUuy6JwOjOQ2mcD3rb/D7RInwj5bR5S92Ph3Umlo50gqMpnCj6lPVayqq+gwLMg/Q6scLq6NTY/w8PCfW76JCSh0YNcC8imnv1XYS5195w==" FormaPago="28" NoCertificado="00001000000711079832" Certificado="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" SubTotal="788.35" Moneda="MXN" Total="914.49" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="55280">
+  <cfdi:Emisor Nombre="EVELYN VERA HERNANDEZ" Rfc="VEHE9706213V6" RegimenFiscal="612" />
+  <cfdi:Receptor Rfc="RAGJ720130B31" Nombre="JACINTO RAMIREZ GUZMAN" UsoCFDI="G03" DomicilioFiscalReceptor="43085" RegimenFiscalReceptor="612" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="25172907" NoIdentificacion="FFNC9924" Cantidad="1.00" ClaveUnidad="H87" Unidad="PZA" Descripcion="C.FARO AVEO 12-17 F/CROMADO C/MICA AMBAR" ValorUnitario="751.22" Importe="751.22" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="751.22" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="120.20" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25172901" NoIdentificacion="H4-P43T-38" Cantidad="1.00" ClaveUnidad="H87" Unidad="PZA" Descripcion="FOCO HALOGENO H4 55/60 WATTS BLANCO" ValorUnitario="31.22" Importe="31.22" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="31.22" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="5.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="25172009" NoIdentificacion="158" Cantidad="1.00" ClaveUnidad="H87" Unidad="PZA" Descripcion="FOCO PELLIZCO A BLANCO" ValorUnitario="1.65" Importe="1.65" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1.65" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="0.26" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="39101600" NoIdentificacion="1157-A-H" Cantidad="1.00" ClaveUnidad="H87" Unidad="PZA" Descripcion="FOCO 2 POLOS P/DISPAREJAS AMBAR" ValorUnitario="4.26" Importe="4.26" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="4.26" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="0.68" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="126.14">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Base="788.35" Importe="126.14" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+  <cfdi:Complemento>
+    <tfd:TimbreFiscalDigital xmlns:tfd="http://www.sat.gob.mx/TimbreFiscalDigital" xsi:schemaLocation="http://www.sat.gob.mx/TimbreFiscalDigital http://www.sat.gob.mx/sitio_internet/cfd/TimbreFiscalDigital/TimbreFiscalDigitalv11.xsd" Version="1.1" UUID="4d95b8e0-4c5c-438c-9b74-29e2bf5c8711" FechaTimbrado="2026-06-24T19:25:25" RfcProvCertif="AUR100128NN3" SelloSAT="VoxjhxVIPZnf9Ew2sEgZpR4qxQ8tat3/+Z0aaWPZ5/IQNhZFUKVfVJArkaFtHf6dpOJT6XshU8TTGW54lFVJuAIrYktWH9JLPSH3CwaXKhHehc7IpAtufC8ESNsbVratRJH5lnvF4LNECTVOlSd9t+XDcdqf+Hitmjr6WVX4I55to9TDnbBzWpY5NrSdLkHPuYZ94TzO+RZ1UdNo3HaLxIfVOjntKQbVhaMwAqC+VOF1Gx3MM70ed0CL8BUHRdKo1V1J1fzT9NQeaiQqE/czVzOQjtttfl8PuDWco3CWOm6wQ4CAEuqspEglHNoNgmqXweandzLl3jmrJHDDiZ0wTQ==" SelloCFD="pJ1lZ17B+5ZkkPnNUdWJLObPCpIjhGqCCDe2zmSjA9CpLMu/j3XlXC1XWYhN/TaSUAtQ50DXal7fEZ6iA8QV9R7XEMc+2bcQv9SV9Paekc9e4Dayi+e8+Ne7MXGynWHvv+9C/JuZQX16id0NLd4hssQifBn6lEIoCvgDi37Yo4QckWOM5EU2AZHcZ9s5mpMbvLTz+HcBS0GITAb5O2nNhTyBAsKI5n2cGIOVSAaynEkxQUuy6JwOjOQ2mcD3rb/D7RInwj5bR5S92Ph3Umlo50gqMpnCj6lPVayqq+gwLMg/Q6scLq6NTY/w8PCfW76JCSh0YNcC8imnv1XYS5195w==" NoCertificadoSAT="00001000000710611637" />
+  </cfdi:Complemento>
+</cfdi:Comprobante>
+
