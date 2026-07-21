@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.api.health import router as health_router
 
+from app.api import reports
 
 app = FastAPI(
     title="Descarga SAT API",
@@ -33,4 +34,9 @@ from app.api.downloads import router as download_router
 
 app.include_router(
    download_router
+)
+
+
+app.include_router(
+   reports.router
 )
