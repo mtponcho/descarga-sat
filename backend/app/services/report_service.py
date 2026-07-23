@@ -40,10 +40,22 @@ class ReportService:
             self.db
         )
 
-        packages = package_service.download_all(
-            download["id"],
-            password,
-        )
+        for _ in range(12):   # hasta 2 minutos
+
+            packages = package_service.download_all(
+                download["id"],
+                password,
+            )
+
+            if packages["packages"]:
+                break
+
+            time.sleep(10)
+
+        else:
+            raise TimeoutError(
+                "El SAT aún no publicó los paquetes."
+            )
 
         cfdi_service = CfdiService(
             self.db
@@ -53,13 +65,15 @@ class ReportService:
             download["id"]
         )
 
-        return {
-            "download_id": download["id"],
-            "request_id": download["request_id"],
-            "status": status,
-            "packages": packages,
-            "process": process,
-        }
+        from app.services.cfdi_query_service import CfdiQueryService
+
+        query = CfdiQueryService(
+            self.db
+        )
+
+        return query.summary_tsv(
+            download["id"]
+        )
 
     def _wait_until_ready(
         self,
@@ -82,10 +96,15 @@ class ReportService:
                 password,
             )
 
-            sat = status["sat_response"]
+        sat = status["sat_response"]
 
-            if sat.get("EstadoSolicitud") == 3:
-                return status
+        if sat.get("CodEstatus") != "5000":
+            raise ValueError(
+                f"SAT rechazó la solicitud: {sat.get('Mensaje')}"
+            )
+
+        if sat.get("EstadoSolicitud") == 3:
+            return status
 
             time.sleep(interval)
             elapsed += interval
