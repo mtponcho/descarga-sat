@@ -1,5 +1,6 @@
 from app.models.cfdi_document import CfdiDocument
 from app.models.download_package import DownloadPackage
+from app.models.download_package_document import DownloadPackageDocument
 
 
 class CfdiQueryService:
@@ -12,8 +13,14 @@ class CfdiQueryService:
         return (
             self.db.query(CfdiDocument)
             .join(
+                DownloadPackageDocument,
+                CfdiDocument.id
+                == DownloadPackageDocument.cfdi_document_id,
+            )
+            .join(
                 DownloadPackage,
-                CfdiDocument.download_package_id == DownloadPackage.id,
+                DownloadPackageDocument.download_package_id
+                == DownloadPackage.id,
             )
             .filter(
                 DownloadPackage.download_request_id == download_id,

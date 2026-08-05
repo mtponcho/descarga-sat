@@ -54,7 +54,6 @@ def download_status(
 
 @router.get(
     "/downloads/{download_id}/download",
-    include_in_schema=False,
 )
 def download_packages(
     download_id: int,
@@ -72,7 +71,6 @@ def download_packages(
 
 @router.post(
     "/downloads/{download_id}/process",
-    include_in_schema=False,
 )
 def process_download(
     download_id: int,
@@ -86,7 +84,6 @@ def process_download(
 
 @router.get(
     "/downloads/{download_id}/summary",
-    include_in_schema=False,
 )
 def cfdi_summary(
     download_id: int,
@@ -101,7 +98,6 @@ def cfdi_summary(
 @router.get(
     "/downloads/{download_id}/summary/tsv",
     response_class=PlainTextResponse,
-    include_in_schema=False,
 )
 def cfdi_summary_tsv(
     download_id: int,
