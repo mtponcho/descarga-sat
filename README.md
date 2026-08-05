@@ -137,7 +137,7 @@ Ejemplo:
 
 ```json
 {
-  "rfc": "RAGJ720130B31",
+  "rfc": "AAAAXXXXXXXXX",
   "start_date": "2026-07-01",
   "end_date": "2026-07-31",
   "direction": "received"
