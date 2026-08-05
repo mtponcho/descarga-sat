@@ -220,7 +220,7 @@ Respuesta ejemplo:
   "rows": [
     {
       "fecha": "2026-07-20",
-      "rfc": "SSF810612MK7",
+      "rfc": "AAAAXXXXXXXXX",
       "uuid": "XXXXXXXX",
       "total": 900.01,
       "iva": 120.95
@@ -241,7 +241,7 @@ Ejemplo:
 
 ```
 Fecha        RFC             Total     IVA
-2026-07-20   SSF810612MK7    900.01    120.95
+2026-07-20   AAAAXXXXXXXXX  900.01    120.95
 TOTAL                       900.01    120.95
 ```
 
