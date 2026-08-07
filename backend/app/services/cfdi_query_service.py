@@ -31,6 +31,13 @@ class CfdiQueryService:
             .all()
         )
 
+    def documents(self, download_id: int):
+        """
+        Regresa los objetos CfdiDocument asociados
+        a una descarga.
+        """
+        return self._rows(download_id)
+
     def summary(self, download_id: int):
 
         rows = self._rows(download_id)
@@ -89,6 +96,50 @@ class CfdiQueryService:
 
         output.append(
             f"TOTAL\t\t{total}\t{iva}"
+        )
+
+        return "\n".join(output)
+
+    def iva_summary_tsv(self, download_id: int):
+
+        rows = self._rows(download_id)
+
+        output = []
+
+        output.append(
+            "Fecha\tRFC\tUUID\tSubtotal\tIVA\tTotal"
+        )
+
+        subtotal = 0
+        iva = 0
+        total = 0
+
+        for cfdi in rows:
+
+            subtotal_cfdi = (
+                cfdi.total - cfdi.iva_trasladado
+            )
+
+            output.append(
+                f"{cfdi.fecha.date()}\t"
+                f"{cfdi.rfc_emisor}\t"
+                f"{cfdi.uuid}\t"
+                f"{subtotal_cfdi:.2f}\t"
+                f"{cfdi.iva_trasladado:.2f}\t"
+                f"{cfdi.total:.2f}"
+            )
+
+            subtotal += subtotal_cfdi
+            iva += cfdi.iva_trasladado
+            total += cfdi.total
+
+        output.append("")
+
+        output.append(
+            f"TOTAL\t\t\t"
+            f"{subtotal:.2f}\t"
+            f"{iva:.2f}\t"
+            f"{total:.2f}"
         )
 
         return "\n".join(output)

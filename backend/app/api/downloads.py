@@ -12,6 +12,11 @@ from app.services.package_service import PackageService
 from app.services.cfdi_service import CfdiService
 from app.services.cfdi_query_service import CfdiQueryService
 
+from enum import Enum
+
+class DownloadDirection(str, Enum):
+    received = "received"
+    issued = "issued"
 
 router = APIRouter()
 
@@ -20,7 +25,10 @@ router = APIRouter()
 def create_download(
     certificate_id: int = Form(...),
     password: str = Form(...),
-    direction: str = Form(...),
+    direction: DownloadDirection = Form(
+    default=DownloadDirection.received,
+    description="Tipo de descarga received para recibidas o issued para generadas",
+    ),
     start_date: date = Form(...),
     end_date: date = Form(...),
     db: Session = Depends(get_db),
@@ -31,7 +39,7 @@ def create_download(
     return service.create(
         certificate_id,
         password,
-        direction,
+        direction.value,
         start_date,
         end_date,
     )

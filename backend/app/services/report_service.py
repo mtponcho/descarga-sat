@@ -38,13 +38,23 @@ class ReportService:
 
         print("3. Esperando SAT")
 
-        self._wait_until_ready(
+        status = self._wait_until_ready(
             download["id"],
             password,
         )
 
-        print("4. SAT listo")
+        sat = status["sat_response"]
 
+        #
+        # No hubo CFDIs para ese periodo
+        #
+        if sat.get("EstadoSolicitud") == 5:
+            return (
+                "Fecha\tRFC\tUUID\tSubtotal\tIVA\tTotal\n"
+                "SIN RESULTADOS"
+            )
+
+        print("4. SAT listo")
         package_service = PackageService(
             self.db
         )
@@ -92,7 +102,7 @@ class ReportService:
 
         print("8. Generando resumen")
 
-        return query.summary_tsv(
+        return query.iva_summary_tsv(
             download["id"]
         )
 
@@ -134,9 +144,13 @@ class ReportService:
                     f"{sat.get('Mensaje')}"
                 )
 
-            if sat.get("EstadoSolicitud") == 3:
+            estado = sat.get("EstadoSolicitud")
+            #
+            # 3 = Hay paquetes disponibles
+            # 5 = Solicitud terminada pero sin CFDIs
+            #
+            if estado in (3, 5):
                 return status
-
             time.sleep(interval)
             elapsed += interval
 

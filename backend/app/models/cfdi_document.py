@@ -3,7 +3,6 @@ from datetime import datetime
 from sqlalchemy import (
     Column,
     DateTime,
-    ForeignKey,
     Integer,
     String,
     Numeric,
@@ -19,12 +18,6 @@ class CfdiDocument(Base):
     id = Column(
         Integer,
         primary_key=True,
-    )
-
-    download_package_id = Column(
-        Integer,
-        ForeignKey("download_packages.id"),
-        nullable=False,
     )
 
     uuid = Column(

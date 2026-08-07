@@ -116,10 +116,6 @@ class CfdiService:
                         )
 
                         document = CfdiDocument(
-                            # Temporal.
-                            # Se eliminará cuando desaparezca
-                            # download_package_id.
-                            download_package_id=package.id,
                             uuid=uuid,
                             rfc_emisor=rfc_emisor,
                             fecha=fecha,
