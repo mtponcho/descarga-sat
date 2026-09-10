@@ -28,6 +28,7 @@ env/
 *.xml
 *.cer
 *.key
+<<<<<<< HEAD
 *.pem
 *.pfx
 *.p12
@@ -42,3 +43,5 @@ backend/app/storage/certificates/
 
 # macOS / Linux
 .DS_Store
+=======
+>>>>>>> 67d4481bab3855c68dd7d0c844bf6e0795fdc7a1
