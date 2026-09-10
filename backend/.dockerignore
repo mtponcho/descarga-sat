@@ -1,0 +1,15 @@
+app/storage/
+app/storage/packages/
+app/storage/packages/xml/
+app/storage/certificates/
+
+*.xml
+*.zip
+*.cer
+*.key
+*.pem
+*.pfx
+*.p12
+
+__pycache__/
+*.pyc

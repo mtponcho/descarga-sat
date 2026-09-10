@@ -1,7 +1,44 @@
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
 .env
+.env.*
+
+# IDEs
+.vscode/
+.idea/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Logs
+*.log
+
+# SAT files
 *.zip
 *.xml
+*.cer
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Runtime storage
+backend/app/storage/packages/
+backend/app/storage/packages/xml/
+backend/app/storage/certificates/
+
+# Database
+*.db
+
+# macOS / Linux
+.DS_Store
