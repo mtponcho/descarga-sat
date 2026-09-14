@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: descarga-sat-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: descarga-sat-api
+  template:
+    metadata:
+      labels:
+        app: descarga-sat-api
+    spec:
+      containers:
+        - name: api
+          image: clavetorres/descarga-sat:v1.0.0
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: descarga-sat-db
+                  key: DB_USER
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: descarga-sat-db
+                  key: DB_PASSWORD
+
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: descarga-sat-db
+                  key: DB_NAME
+
+            - name: POSTGRES_DNS
+              valueFrom:
+                secretKeyRef:
+                  name: descarga-sat-db
+                  key: POSTGRES_DNS
+
+            - name: DATABASE_URL
+              value: "postgresql://$(DB_USER):$(DB_PASSWORD)@$(POSTGRES_DNS):5432/$(DB_NAME)"
